@@ -1,0 +1,85 @@
+%-------------------------
+% CV - Hoàng Tấn Đạt
+%-------------------------
+\documentclass[a4paper,11pt]{article}
+
+% Font & encoding
+\usepackage[utf8]{vietnam}
+\usepackage[T5]{fontenc}
+\usepackage{fontawesome5}
+\usepackage{hyperref}
+
+% Margins
+\usepackage[top=0.8cm, bottom=0.8cm, left=1.2cm, right=1.2cm]{geometry}
+
+% Sections
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+% Remove paragraph indent
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+% Custom commands
+\newcommand{\resumeitem}[2]{
+    \noindent \textbf{#1} \hfill \textit{#2} \\
+}
+
+\newcommand{\resumebullet}[1]{
+    \noindent \textbullet\ #1 \\
+}
+
+\begin{document}
+
+% ========== HEADER ==========
+\begin{center}
+    {\huge \textbf{HOÀNG TẤN ĐẠT}} \\[5pt]
+    \faPhone\  (+84) 912 345 678 \quad
+    \faEnvelope\ \href{mailto:dat.hoang@example.com}{dat.hoang@example.com} \quad
+    \faMapMarker\  Ho Chi Minh, Vietnam \\
+    \faGithub\ \href{https://github.com/dathoang1412}{github.com/dathoang1412} \quad
+    \faLinkedin\ \href{https://linkedin.com/in/dathoang1412}{linkedin.com/in/dathoang1412}
+\end{center}
+
+% ========== EDUCATION ==========
+\section{Education}
+\resumeitem{FPT University, Ho Chi Minh}{Oct 2023 – Feb 2027 (Expected)}
+Bachelor’s Degree in Information Technology
+
+% ========== SKILLS \& INTEREST ==========
+\section{Skills \& Interest}
+\noindent
+\textbf{Languages:} C/C++, JavaScript, TypeScript, Java \\
+\textbf{Tools \& Frameworks:} Git, Docker, CI/CD, Node.js, React.js, Next.js, PostgreSQL, MongoDB \\
+\textbf{Interest:} Software Development, AI Integration, High-performance systems, Competitive Programming \\
+\textbf{Hackathon:} System design skills and the ability to quickly release MVP products.
+
+% ========== PROJECTS ==========
+\section{Projects}
+
+\resumeitem{BookHub}{Personal Project, 2025}
+\resumebullet{Built a full-stack platform for book lending and a community for book lovers, allowing users to borrow, lend, and discuss books.}
+\resumebullet{Designed a user-friendly interface with React.js and TailwindCSS, enabling users to search books, manage their personal libraries, and write reviews.}
+\resumebullet{Implemented backend logic with Node.js and Express, using MongoDB for database management to track book availability, borrowing history, and community interactions.}
+
+\resumeitem{GU.AI — AI Fashion Photography Platform}{2025}
+\resumebullet{Full-stack SaaS with 3 apps (customer web, REST API \textasciitilde85 endpoints, admin panel) letting fashion sellers create product photos/videos via 9 AI tools (virtual try-on, model generation, editing) powered by Fashn.ai}
+\resumebullet{Built credit-based billing with PayOS payments, dynamic per-tool pricing, and subscription plans; integrated Google Gemini for an in-studio AI assistant with RAG-based template search}
+\resumebullet{Implemented real-time notifications and support chat with Socket.IO, plus an admin panel with live monitoring, RBAC user management, and revenue analytics}
+
+% ========== EXPERIENCE ==========
+\section{Experience}
+
+\resumeitem{Intern Software Engineering, FPT Software (FSoft)}{Jul 2025 – Oct 2025}
+\resumebullet{Worked in a professional software development team, contributing to enterprise projects.}
+\resumebullet{Applied agile processes, participated in code reviews, and improved backend performance.}
+\resumebullet{Gained hands-on experience with real-world requirements, debugging, and deployment workflows.}
+
+% ========== AWARDS ==========
+\section{Awards \& Achievements}
+
+\resumeitem{ICPC National Contest}{2025}
+Participated in the ICPC National 2025 as a contestant, competing against top programming teams from universities across the region.
+
+\end{document}
