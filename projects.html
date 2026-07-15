@@ -1,87 +1,117 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>projects</title>
-<style>
-html, body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-}
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-body {
-    min-height: 100vh;
-    font-family: "Times New Roman", serif;
-}
+<title>Projects — Hoàng Tấn Đạt</title>
+<meta name="description" content="A catalogue of projects by Hoàng Tấn Đạt: BookHub, a book-lending community platform, and GU.AI, an AI fashion photography SaaS.">
+<meta name="author" content="Hoàng Tấn Đạt">
+<link rel="canonical" href="https://dathoang1412.github.io/projects.html">
 
-#main {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Projects — Hoàng Tấn Đạt">
+<meta property="og:description" content="A catalogue of projects: BookHub and GU.AI.">
+<meta property="og:url" content="https://dathoang1412.github.io/projects.html">
+<meta property="og:image" content="https://dathoang1412.github.io/assets/images/avatar.jpg">
+<meta name="twitter:card" content="summary_large_image">
 
-#main > div {
-    max-width: 640px;
-    padding: 48px 16px;
-}
+<script>(function(){try{var t=localStorage.getItem("theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}})();</script>
 
-.project {
-    margin-bottom: 40px;
-    line-height: 1.5;
-}
+<link rel="preload" href="assets/fonts/ebgaramond-400to800-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ebgaramond-400to800-normal-vietnamese.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ebgaramond-400to800-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ebgaramond-400to800-italic-vietnamese.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibmplexmono-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibmplexmono-400-normal-vietnamese.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/style.css">
 
-.project .year {
-    font-size: 14px;
-    color: #666;
-}
-
-#back {
-    position: fixed;
-    left: 16px;
-    top: 12px;
-    font-size: 14px;
-}
-</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9D%A6%3C/text%3E%3C/svg%3E">
 </head>
+
 <body>
 
-<a id="back" href="index.html">← home</a>
+<div class="frame" aria-hidden="true"></div>
+<button class="lamp" type="button" aria-label="Toggle day / night theme">☾ night</button>
 
-<div id="main">
-    <div>
+<nav class="side-nav" aria-label="Main">
+  <a class="brand" href="index.html">H.T.Đạt</a>
+  <span class="side-orn" aria-hidden="true">❦</span>
+  <a href="about.html">about</a>
+  <a href="projects.html" aria-current="page">projects</a>
+  <a href="https://dathoang1412.github.io/assets/cv.pdf" target="_blank" rel="noopener">cv</a>
+  <a href="https://github.com/dathoang1412" target="_blank" rel="noopener">github</a>
+  <a href="https://linkedin.com/in/dathoang1412" target="_blank" rel="noopener">linkedin</a>
+</nav>
 
-        <font size="8"><i><b>「PROJECTS」</b></i></font>
+<div class="sheet">
 
-        <br><br><br>
+  <div class="page-title rise" style="--d:.1s">
+    <h1>A Catalogue of Works</h1>
+    <p class="sub">chapter ii — things built, shipped &amp; occasionally debugged at 2 a.m.</p>
+    <div class="orn" aria-hidden="true">❦</div>
+  </div>
 
-        <div class="project">
-            <b>BookHub</b>
-            <div class="year"><i>personal project, 2025</i></div>
-            A full-stack platform for book lending and a community for book
-            lovers — borrow, lend, and discuss books. React.js + TailwindCSS
-            front end for searching books, managing personal libraries, and
-            writing reviews; Node.js/Express backend with MongoDB tracking
-            book availability, borrowing history, and community interactions.
-        </div>
+  <main>
 
-        <div class="project">
-            <b>GU.AI — AI Fashion Photography Platform</b>
-            <div class="year"><i>2025</i></div>
-            Full-stack SaaS with 3 apps (customer web, REST API ~85 endpoints,
-            admin panel) letting fashion sellers create product photos and
-            videos via 9 AI tools (virtual try-on, model generation, editing)
-            powered by Fashn.ai. Credit-based billing with PayOS payments,
-            dynamic per-tool pricing, and subscription plans; Google Gemini
-            in-studio AI assistant with RAG-based template search; real-time
-            notifications and support chat with Socket.IO; admin panel with
-            live monitoring, RBAC user management, and revenue analytics.
-        </div>
+    <article class="entry reveal">
+      <span class="numeral" aria-hidden="true">i.</span>
+      <h2>BookHub</h2>
+      <p class="when">personal project · 2025</p>
+      <p>
+        A full-stack platform for book lending and a community for book lovers —
+        borrow, lend, and argue about endings. The front end
+        (<span class="mono">React</span> + <span class="mono">TailwindCSS</span>)
+        lets readers search books, manage personal libraries and write reviews;
+        the backend (<span class="mono">Node.js</span> / <span class="mono">Express</span>,
+        <span class="mono">MongoDB</span>) keeps the ledger — availability,
+        borrowing history, and every conversation in between.
+      </p>
+      <p class="refs">
+        <a href="https://github.com/Bookhub-SWD/Frontend" target="_blank" rel="noopener">frontend</a>
+        <a href="https://github.com/Bookhub-SWD/Backend" target="_blank" rel="noopener">backend</a>
+        <a href="https://github.com/Bookhub-SWD/admin-frontend" target="_blank" rel="noopener">admin</a>
+      </p>
+    </article>
 
-    </div>
+    <div class="orn reveal" aria-hidden="true">⁂</div>
+
+    <article class="entry reveal">
+      <span class="numeral" aria-hidden="true">ii.</span>
+      <h2><a class="title-link" href="https://guai.com.vn" target="_blank" rel="noopener">GU.AI — AI Fashion Photography Platform</a></h2>
+      <p class="when">full-stack saas · 2025</p>
+      <p>
+        Three applications — customer web, a REST API of ~85 endpoints, and an
+        admin panel — letting fashion sellers create product photos and videos
+        through nine AI tools (virtual try-on, model generation, editing)
+        powered by <span class="mono">Fashn.ai</span>.
+      </p>
+      <p>
+        Credit-based billing with <span class="mono">PayOS</span> payments,
+        dynamic per-tool pricing and subscription plans;
+        <span class="mono">Google Gemini</span> drives an in-studio assistant
+        with RAG-based template search. Real-time notifications and support
+        chat run on <span class="mono">Socket.IO</span>, and the admin panel
+        ships live monitoring, RBAC user management and revenue analytics.
+      </p>
+      <p class="refs">
+        <a href="https://github.com/GU-AI-enterprise/GU.AI-Frontend" target="_blank" rel="noopener">frontend</a>
+        <a href="https://github.com/GU-AI-enterprise/GU.AI-Backend" target="_blank" rel="noopener">backend</a>
+        <a href="https://github.com/GU-AI-enterprise/GU.AI-admin-panel" target="_blank" rel="noopener">admin</a>
+      </p>
+    </article>
+
+  </main>
+
 </div>
 
+<footer class="footer">
+  <div class="orn" aria-hidden="true">❦</div>
+  <div><a href="mailto:datdat2kk5@gmail.com">datdat2kk5@gmail.com</a> · ho chi minh city, việt nam</div>
+  <div>© mmxxvi hoàng tấn đạt — <a href="https://github.com/dathoang1412/dathoang1412.github.io" target="_blank" rel="noopener">view source</a></div>
+</footer>
+
+<script src="assets/js/main.js"></script>
 </body>
 </html>

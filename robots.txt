@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dathoang1412.github.io/sitemap.xml

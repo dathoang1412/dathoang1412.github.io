@@ -1,0 +1,681 @@
+/* ============================================================
+   dathoang1412.github.io — "field notes of a software engineer"
+   hand-built. no frameworks. set in EB Garamond & IBM Plex Mono.
+   ============================================================ */
+
+:root {
+  --paper:        #f1e9d7;
+  --paper-2:      #e9ddc4;
+  --ink:          #241d15;
+  --ink-soft:     #4a3f31;
+  --muted:        #7d6f5a;
+  --accent:       #8a3324;
+  --gold:         #8f7134;
+  --rule:         rgba(36, 29, 21, 0.28);
+  --rule-strong:  rgba(36, 29, 21, 0.55);
+  --shadow:       rgba(36, 29, 21, 0.18);
+  --grain-alpha:  0.5;
+  --vignette:     rgba(36, 29, 21, 0.1);
+
+  --serif: "EB Garamond", "Times New Roman", Georgia, serif;
+  --mono:  "IBM Plex Mono", Consolas, "Courier New", monospace;
+}
+
+:root.dark {
+  --paper:        #17120d;
+  --paper-2:      #211a13;
+  --ink:          #e6d9bf;
+  --ink-soft:     #c9b998;
+  --muted:        #8d7d63;
+  --accent:       #d0815a;
+  --gold:         #b0894a;
+  --rule:         rgba(230, 217, 191, 0.22);
+  --rule-strong:  rgba(230, 217, 191, 0.45);
+  --shadow:       rgba(0, 0, 0, 0.5);
+  --grain-alpha:  0.3;
+  --vignette:     rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- base ---------- */
+
+* { box-sizing: border-box; }
+
+html { height: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+:root.theme-anim body,
+:root.theme-anim body * {
+  transition: background-color 0.5s ease, color 0.5s ease,
+              border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* paper grain + candlelight vignette */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: var(--grain-alpha);
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center,
+              transparent 55%, var(--vignette) 100%);
+}
+
+::selection { background: var(--accent); color: var(--paper); }
+
+/* the double frame, like an old title page */
+.frame {
+  position: fixed;
+  inset: 12px;
+  z-index: 40;
+  pointer-events: none;
+  border: 3px double var(--rule-strong);
+}
+
+/* ---------- typography ---------- */
+
+h1, h2, h3 { font-weight: 600; line-height: 1.15; margin: 0; }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  position: relative;
+}
+
+.u, p a, li a {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: 0 100%;
+}
+
+.smallcaps {
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+}
+
+.mono {
+  font-family: var(--mono);
+  font-size: 0.72em;
+  letter-spacing: 0.04em;
+}
+
+.muted { color: var(--muted); }
+
+/* ornament divider: ——— ❦ ——— */
+.orn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: center;
+  color: var(--gold);
+  margin: 1.4rem auto;
+  user-select: none;
+}
+.orn::before, .orn::after {
+  content: "";
+  height: 1px;
+  width: min(110px, 24vw);
+  background: linear-gradient(90deg, transparent, var(--rule-strong));
+}
+.orn::after {
+  background: linear-gradient(90deg, var(--rule-strong), transparent);
+}
+
+/* ---------- side nav: the book's spine, same on every page ---------- */
+
+/* centered with top/bottom+margin, NOT transform —
+   the .rise animation animates transform and would override it */
+.side-nav {
+  position: fixed;
+  left: 36px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  height: max-content;
+  z-index: 41;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+  font-variant: small-caps;
+  letter-spacing: 0.16em;
+  font-size: 0.98rem;
+}
+
+.side-nav .brand {
+  font-weight: 700;
+  font-size: 1.18rem;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+}
+
+.side-nav .side-orn {
+  color: var(--gold);
+  user-select: none;
+  line-height: 1;
+}
+
+.side-nav a {
+  color: var(--ink);
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.side-nav a:not(.brand)::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 58%;
+  width: 13px;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.side-nav a:hover,
+.side-nav a:focus-visible,
+.side-nav a[aria-current="page"] { color: var(--accent); }
+
+.side-nav a:not(.brand):hover { transform: translateX(4px); }
+
+.side-nav a:hover::before,
+.side-nav a:focus-visible::before,
+.side-nav a[aria-current="page"]::before { transform: scaleX(1); }
+
+/* external links wear a small engraved arrow-box icon,
+   drawn from an inline svg mask and inked with currentColor */
+.side-nav a[target="_blank"]::after,
+.entry .refs a::after,
+.entry h2 .title-link::after {
+  content: "";
+  display: inline-block;
+  width: 0.78em;
+  height: 0.78em;
+  margin-left: 0.4em;
+  vertical-align: -0.06em;
+  background-color: currentColor;
+  opacity: 0.55;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpath d='M15 3h6v6'/%3E%3Cpath d='M10 14 21 3'/%3E%3C/svg%3E") no-repeat center / contain;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpath d='M15 3h6v6'/%3E%3Cpath d='M10 14 21 3'/%3E%3C/svg%3E") no-repeat center / contain;
+  transition: opacity 0.25s ease;
+}
+
+.side-nav a[target="_blank"]:hover::after,
+.side-nav a[target="_blank"]:focus-visible::after,
+.entry .refs a:hover::after,
+.entry h2 .title-link:hover::after,
+.entry h2 .title-link:focus-visible::after { opacity: 1; }
+
+/* narrow screens: the spine folds into a top bar */
+@media (max-width: 1080px) {
+  .side-nav {
+    position: static;
+    margin: 0;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.35rem 1.3rem;
+    padding: 30px 20px 0;
+    font-size: 0.92rem;
+  }
+
+  .side-nav .side-orn { display: none; }
+  .side-nav a:not(.brand)::before { display: none; }
+  .side-nav a:not(.brand):hover { transform: none; }
+
+  /* on cover pages the bar floats over the full-height layout;
+     centered with left/right+margin so .rise can't knock it loose */
+  body.home .side-nav {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: max-content;
+    max-width: calc(100% - 56px);
+    padding: 0;
+  }
+
+  body.home .title-page { padding-top: 96px; }
+}
+
+/* ---------- nav ---------- */
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 1.6rem;
+  font-variant: small-caps;
+  letter-spacing: 0.16em;
+  font-size: 1.02rem;
+}
+
+.nav a { color: var(--ink); }
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav a:hover::after,
+.nav a:focus-visible::after,
+.nav a[aria-current="page"]::after { transform: scaleX(1); }
+
+.nav a[aria-current="page"] { color: var(--accent); }
+
+/* ---------- framed pictures ("plates") ---------- */
+
+.plate {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 10px 8px;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  box-shadow: 0 10px 30px -12px var(--shadow),
+              0 2px 6px -2px var(--shadow);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.6s ease;
+}
+
+.plate:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 44px -16px var(--shadow),
+              0 4px 10px -3px var(--shadow);
+}
+
+.plate img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  filter: sepia(0.28) contrast(1.02) saturate(0.92);
+  transition: filter 0.6s ease;
+}
+
+.plate:hover img { filter: sepia(0.05) contrast(1.02); }
+
+.plate figcaption {
+  font-family: var(--mono);
+  font-style: italic;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-align: center;
+  padding-top: 8px;
+}
+
+/* ---------- home: the title page ---------- */
+
+.title-page {
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  padding: clamp(28px, 4vh, 56px) 20px;
+  overflow: hidden;
+}
+
+.title-page .inner { max-width: 640px; }
+
+/* every gap on the title page breathes with the viewport,
+   so the whole cover always fits without scrolling */
+.title-page p { margin: clamp(0.3rem, 1.2vh, 0.85rem) 0; }
+.title-page .orn { margin: clamp(0.4rem, 1.6vh, 1.3rem) auto; }
+
+.title-page .plate img {
+  max-height: min(32vh, 286px);
+  width: auto;
+  max-width: 100%;
+}
+
+.epigraph {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.display-name {
+  font-size: min(clamp(2.4rem, 7.5vw, 4.2rem), 8.5vh);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-shadow: 0 1px 0 var(--paper-2), 0 2px 2px var(--shadow);
+}
+
+.tagline {
+  font-style: italic;
+  font-size: 1.18rem;
+  color: var(--ink-soft);
+  margin: 0.4rem 0 0;
+}
+
+.clock-line {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.clock-line time { color: var(--accent); font-style: normal; }
+
+/* corner colophon (home, bottom right) */
+.corner-note {
+  position: fixed;
+  right: 30px;
+  bottom: 26px;
+  z-index: 41;
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  line-height: 1.7;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.corner-note a { color: var(--muted); }
+.corner-note a:hover { color: var(--accent); }
+
+/* short screens: tuck everything in tighter */
+@media (max-height: 700px) {
+  .tagline { font-size: 1.02rem; }
+  .epigraph, .clock-line { font-size: 0.64rem; }
+  .plate figcaption { display: none; }
+  .corner-note { display: none; }
+}
+
+/* phones: the corner note would collide with the nav */
+@media (max-width: 700px) {
+  .corner-note { display: none; }
+}
+
+/* landscape phones & very cramped viewports: let it scroll
+   rather than cut content off */
+@media (max-height: 460px) {
+  .title-page {
+    height: auto;
+    min-height: 100svh;
+    overflow: visible;
+  }
+}
+
+/* ---------- interior pages ---------- */
+
+.sheet {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 64px 26px 40px;
+}
+
+.page-title {
+  text-align: center;
+  margin-top: 0.6rem;
+}
+
+.page-title h1 {
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  letter-spacing: 0.04em;
+}
+
+.page-title .sub {
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 0.35rem;
+}
+
+/* drop cap for the opening paragraph */
+.dropcap::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.82;
+  padding: 0.08em 0.12em 0 0;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ---------- projects catalogue ---------- */
+
+.entry {
+  margin: 2.6rem 0;
+  padding-left: 3.2rem;
+  position: relative;
+}
+
+.entry .numeral {
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gold);
+  font-variant: small-caps;
+}
+
+.entry h2 {
+  font-size: 1.45rem;
+  letter-spacing: 0.02em;
+}
+
+/* a project title that is itself a link: ink underline
+   draws across the whole line on hover */
+.entry h2 .title-link {
+  color: inherit;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  background-position: 0 94%;
+  transition: background-size 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              color 0.3s ease;
+}
+
+.entry h2 .title-link:hover,
+.entry h2 .title-link:focus-visible {
+  color: var(--accent);
+  background-size: 100% 1px;
+}
+
+.entry h2 .title-link::after {
+  width: 0.62em;
+  height: 0.62em;
+}
+
+.entry .when {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0.2rem 0 0.6rem;
+}
+
+.entry p { margin: 0 0 0.7rem; }
+
+.entry .refs {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+.entry .refs a {
+  color: var(--ink-soft);
+  border: 1px solid var(--rule);
+  padding: 3px 9px;
+  margin-right: 6px;
+  display: inline-block;
+  transition: color 0.25s ease, border-color 0.25s ease,
+              transform 0.25s ease;
+}
+
+.entry .refs a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ---------- about ---------- */
+
+.portrait-wrap {
+  float: right;
+  width: min(260px, 42%);
+  margin: 0.4rem 0 1rem 1.6rem;
+  transform: rotate(1.6deg);
+}
+
+@media (max-width: 560px) {
+  .portrait-wrap {
+    float: none;
+    width: 82%;
+    margin: 0 auto 1.6rem;
+    display: block;
+  }
+}
+
+.colophon {
+  margin-top: 2.4rem;
+  border: 1px solid var(--rule);
+  padding: 1.3rem 1.5rem;
+  background: color-mix(in srgb, var(--paper-2) 55%, transparent);
+}
+
+.colophon h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  font-size: 1rem;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.colophon dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 1.2rem;
+}
+
+.colophon dt {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 0.28em;
+}
+
+.colophon dd { margin: 0; }
+
+@media (max-width: 480px) {
+  .colophon dl { grid-template-columns: 1fr; gap: 0; }
+  .colophon dd { margin-bottom: 0.6rem; }
+}
+
+/* ---------- footer ---------- */
+
+.footer {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2.5rem 20px 3rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  line-height: 2;
+}
+
+.footer .orn { margin-bottom: 0.8rem; }
+.footer a { color: var(--muted); }
+.footer a:hover { color: var(--accent); }
+
+/* ---------- theme toggle ---------- */
+
+.lamp {
+  position: fixed;
+  top: 26px;
+  right: 30px;
+  z-index: 41;
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.lamp:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ---------- motion ---------- */
+
+.rise {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--d, 0s);
+}
+
+@keyframes rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise, .reveal { animation: none; transition: none; opacity: 1; transform: none; }
+  .plate, .plate img, .entry .refs a { transition: none; }
+}
