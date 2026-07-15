@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>HOÀNG TẤN ĐẠT</title>
+
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<style>
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Times New Roman", serif;
+}
+
+#main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#timezone {
+    font-size: 18px;
+}
+
+#contact {
+    position: fixed;
+    right: 16px;
+    bottom: 12px;
+    font-size: 14px;
+    color: #666;
+    text-align: right;
+    line-height: 1.35;
+}
+
+#contact .address {
+    margin-top: 8px;
+}
+</style>
+
+<script>
+const formatter = new Intl.DateTimeFormat([], {
+    timeZone: "Asia/Ho_Chi_Minh",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    timeZoneName: "short"
+});
+
+function updateTime() {
+    const parts = formatter.formatToParts(new Date());
+
+    document.getElementById("time").textContent =
+        parts
+            .filter(part => part.type !== "timeZoneName")
+            .map(part => part.value)
+            .join("");
+
+    document.getElementById("tz").textContent =
+        parts.find(part => part.type === "timeZoneName").value;
+}
+
+window.onload = () => {
+    updateTime();
+    setInterval(updateTime, 1000);
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="main">
+    <div>
+
+        <font size="12"><i><b>「HOÀNG TẤN ĐẠT」</b></i></font>
+
+        <br><br>
+
+        <img src="assets/banner.svg" style="width:560px;" alt="fpt university">
+
+        <br><br>
+
+        <span id="timezone">
+            <i>
+                TIME IN HO CHI MINH CITY -
+                <span id="time">0:00 PM</span>
+                <span id="tz">ICT</span>
+            </i>
+        </span>
+
+        <br><br>
+
+        <a href="about.html">about</a> //
+        <a href="projects.html">projects</a> //
+        <a href="https://github.com/dathoang1412">github</a> //
+        <a href="https://linkedin.com/in/dathoang1412">linkedin</a>
+
+    </div>
+</div>
+
+<div id="contact">
+    <div>dat.hoang[at]example.com</div>
+
+    <div class="address">
+        ho chi minh city<br>
+        vietnam
+    </div>
+</div>
+
+</body>
+</html>

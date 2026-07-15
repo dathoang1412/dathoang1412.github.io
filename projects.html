@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>projects</title>
+<style>
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Times New Roman", serif;
+}
+
+#main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#main > div {
+    max-width: 640px;
+    padding: 48px 16px;
+}
+
+.project {
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+.project .year {
+    font-size: 14px;
+    color: #666;
+}
+
+#back {
+    position: fixed;
+    left: 16px;
+    top: 12px;
+    font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<a id="back" href="index.html">← home</a>
+
+<div id="main">
+    <div>
+
+        <font size="8"><i><b>「PROJECTS」</b></i></font>
+
+        <br><br><br>
+
+        <div class="project">
+            <b>BookHub</b>
+            <div class="year"><i>personal project, 2025</i></div>
+            A full-stack platform for book lending and a community for book
+            lovers — borrow, lend, and discuss books. React.js + TailwindCSS
+            front end for searching books, managing personal libraries, and
+            writing reviews; Node.js/Express backend with MongoDB tracking
+            book availability, borrowing history, and community interactions.
+        </div>
+
+        <div class="project">
+            <b>GU.AI — AI Fashion Photography Platform</b>
+            <div class="year"><i>2025</i></div>
+            Full-stack SaaS with 3 apps (customer web, REST API ~85 endpoints,
+            admin panel) letting fashion sellers create product photos and
+            videos via 9 AI tools (virtual try-on, model generation, editing)
+            powered by Fashn.ai. Credit-based billing with PayOS payments,
+            dynamic per-tool pricing, and subscription plans; Google Gemini
+            in-studio AI assistant with RAG-based template search; real-time
+            notifications and support chat with Socket.IO; admin panel with
+            live monitoring, RBAC user management, and revenue analytics.
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

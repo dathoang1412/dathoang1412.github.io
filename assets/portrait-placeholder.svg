@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+  <rect width="240" height="240" fill="#e8e8e8"/>
+  <circle cx="120" cy="95" r="42" fill="#bdbdbd"/>
+  <path d="M40 220 q80 -90 160 0 z" fill="#bdbdbd"/>
+  <text x="120" y="228" text-anchor="middle" font-family="Times New Roman, serif" font-size="13" fill="#777">portrait — thay ảnh của bạn</text>
+</svg>
