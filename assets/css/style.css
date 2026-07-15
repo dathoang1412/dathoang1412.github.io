@@ -382,6 +382,13 @@ a {
   text-shadow: 0 1px 0 var(--paper-2), 0 2px 2px var(--shadow);
 }
 
+.aka {
+  font-style: italic;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
 .tagline {
   font-style: italic;
   font-size: 1.18rem;
