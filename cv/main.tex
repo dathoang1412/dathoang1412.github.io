@@ -1,91 +1,106 @@
+%-------------------------
+% CV - Hoàng Tấn Đạt
+%-------------------------
 \documentclass[a4paper,11pt]{article}
 
 % Font & encoding
 \usepackage[utf8]{vietnam}
 \usepackage[T5]{fontenc}
-\usepackage{fontawesome5}
-\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
 
 % Margins
-\usepackage[top=0.8cm, bottom=0.8cm, left=1.2cm, right=1.2cm]{geometry}
+\usepackage[top=0.9cm, bottom=0.9cm, left=1.3cm, right=1.3cm]{geometry}
 
 % Sections
 \usepackage{titlesec}
 \titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{8pt}{4pt}
+\titlespacing{\section}{0pt}{6pt}{2pt}
+
+% Lists
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.3em, itemsep=0pt, topsep=1pt, parsep=0pt}
 
 % Remove paragraph indent
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.45em}
+\setlength{\parskip}{0.28em}
 
-% Custom commands
-\newcommand{\resumeitem}[2]{
-    \noindent \textbf{#1} \hfill \textit{#2} \\
-}
-
-\newcommand{\resumebullet}[1]{
-    \noindent \textbullet\ #1 \\
+% Two-line entry: {bold left}{right} / {italic left}{italic right}
+\newcommand{\entry}[4]{%
+    \noindent\textbf{#1} \hfill #2 \\
+    \noindent\textit{#3} \hfill \textit{#4}\par
 }
 
 \begin{document}
 
 % ========== HEADER ==========
 \begin{center}
-    {\huge \textbf{HOÀNG TẤN ĐẠT}} \\[5pt]
-    \faPhone\ (+84) 799 165 330 \quad
-    \faEnvelope\ \href{mailto:datdat2kk5@gmail.com}{datdat2kk5@gmail.com} \quad
-    \faMapMarker\ Ho Chi Minh City, Vietnam \\
-    \faGithub\ \href{https://github.com/dathoang1412}{github.com/dathoang1412} \quad
-    \faLinkedin\ \href{https://linkedin.com/in/dathoang1412}{linkedin.com/in/dathoang1412}
+    {\Huge \textbf{Hoàng Tấn Đạt}} \\[6pt]
+    Ho Chi Minh City, Viet Nam \ | \
+    \href{mailto:datdat2kk5@gmail.com}{datdat2kk5@gmail.com} \ | \
+    (+84) 799 165 330 \\[2pt]
+    \href{https://linkedin.com/in/dathoang1412}{linkedin.com/in/dathoang1412} \ | \
+    \href{https://github.com/dathoang1412}{github.com/dathoang1412}
 \end{center}
 
 % ========== SUMMARY ==========
 \section{Summary}
-Software engineering student with hands-on experience in full-stack development, AI integration, and building MVPs. Strong background in JavaScript/TypeScript, React.js, Node.js, and database design. Comfortable working in English and at a fundamental Japanese level.
-
-% ========== EDUCATION ==========
-\section{Education}
-\resumeitem{FPT University, Ho Chi Minh City}{Oct 2023 -- Feb 2027 (Expected)}
-Bachelor's Degree in Information Technology
-
-% ========== SKILLS ==========
-\section{Skills}
-\noindent
-\textbf{Programming Languages:} C/C++, JavaScript, TypeScript, Java \\
-\textbf{Frontend:} React.js, Next.js, TailwindCSS \\
-\textbf{Backend:} Node.js, Express, REST API, Socket.IO \\
-\textbf{Database:} PostgreSQL, MongoDB \\
-\textbf{Tools:} Git, Docker, CI/CD \\
-\textbf{Languages:} English, Japanese (Fundamental) \\
-\textbf{Interests:} Software Development, AI Integration, High-Performance Systems, Competitive Programming
-
-% ========== PROJECTS ==========
-\section{Projects}
-
-\resumeitem{BookHub}{Personal Project, 2025}
-\resumebullet{Built a full-stack platform for book lending and community discussion, supporting borrowing, lending, and user reviews.}
-\resumebullet{Developed the frontend with React.js and TailwindCSS, enabling book search, personal library management, and review creation.}
-\resumebullet{Implemented backend services with Node.js, Express, and MongoDB to manage book availability, borrowing history, and community activity.}
-
-\resumeitem{GU.AI -- AI Fashion Photography Platform}{2025}
-\resumebullet{Built a full-stack SaaS platform with 3 applications: customer web app, REST API with about 85 endpoints, and admin panel.}
-\resumebullet{Integrated 9 AI tools for fashion sellers, including virtual try-on, model generation, and image/video editing, powered by Fashn.ai.}
-\resumebullet{Implemented credit-based billing, PayOS payments, subscription plans, and dynamic pricing per AI tool.}
-\resumebullet{Integrated Google Gemini for an in-studio AI assistant with RAG-based template search, plus real-time notifications and support chat using Socket.IO.}
-\resumebullet{Built admin features for live monitoring, RBAC user management, and revenue analytics.}
+Software engineering student focused on \textbf{frontend development with React.js and Next.js}, with full-stack experience across Node.js, real-time systems, and AI integration. Comfortable working in English and at a fundamental Japanese level.
 
 % ========== EXPERIENCE ==========
 \section{Experience}
 
-\resumeitem{Intern Software Engineer, FPT Software (FSoft)}{Jul 2025 -- Oct 2025}
-\resumebullet{Contributed to enterprise software development in a professional team environment.}
-\resumebullet{Participated in code reviews, agile workflows, debugging, and deployment processes.}
-\resumebullet{Improved backend performance and gained experience with real-world requirements and production-quality development.}
+\entry{FPT Software (FSoft)}{Jul 2025 -- Oct 2025}
+      {Frontend Developer Intern --- \textbf{Next.js}}{Ho Chi Minh City, Viet Nam}
+\begin{itemize}
+    \item Developed frontend features with \textbf{Next.js} and \textbf{TypeScript} for an enterprise web application delivered to a \textbf{Japanese client}.
+    \item Built responsive, spec-compliant UI components and integrated REST APIs with backend and QA teams.
+    \item Worked in an agile process with code reviews and Japanese-standard documentation and quality requirements.
+\end{itemize}
+
+% ========== PROJECTS ==========
+\section{Projects}
+
+\entry{GU.AI --- AI Fashion Photography Platform}{2026 | Team of 3}
+      {Full-stack --- \textbf{Next.js}, TypeScript, Node.js, MongoDB, Socket.IO}
+      {\href{https://guai.com.vn}{guai.com.vn} $\cdot$ \href{https://github.com/GU-AI-enterprise}{github}}
+\begin{itemize}
+    \item Built a full-stack SaaS platform (\textbf{Next.js} web app, REST API with \textbf{$\sim$85 endpoints}, and admin panel) with \textbf{9 AI tools} for fashion sellers --- virtual try-on, model generation, and image/video editing, powered by Fashn.ai.
+    \item Implemented \textbf{credit-based billing} with PayOS payments, subscription plans, and dynamic per-tool pricing.
+    \item Integrated \textbf{Google Gemini} for an in-studio AI assistant with \textbf{RAG-based} template search, plus real-time notifications and support chat using Socket.IO.
+    \item Built admin features for live monitoring, \textbf{RBAC} user management, and revenue analytics.
+\end{itemize}
+
+\entry{BookHub}{2025 | Team of 5}
+      {Full-stack --- \textbf{React.js}, TailwindCSS, Node.js, Express, MongoDB}
+      {\href{https://github.com/Bookhub-SWD}{github.com/Bookhub-SWD}}
+\begin{itemize}
+    \item Built a full-stack platform for book lending and community discussion, supporting borrowing, lending, and user reviews.
+    \item Developed the frontend with \textbf{React.js} and TailwindCSS for book search, personal library management, and review creation.
+    \item Implemented backend services with Node.js, Express, and MongoDB for book availability, borrowing history, and community activity.
+\end{itemize}
+
+% ========== EDUCATION ==========
+\section{Education}
+
+\entry{FPT University}{Oct 2023 -- Feb 2027 (Expected)}
+      {Bachelor's Degree in Information Technology}{Ho Chi Minh City, Viet Nam}
+
+% ========== SKILLS ==========
+\section{Skills}
+\noindent
+\textbf{Programming Languages:} JavaScript, TypeScript, C/C++, Java \\
+\textbf{Frontend:} \textbf{Next.js}, React.js, TailwindCSS \\
+\textbf{Backend:} Node.js, Express, REST API, Socket.IO \\
+\textbf{Database:} PostgreSQL, MongoDB \\
+\textbf{Developer Tools:} Git, Docker, CI/CD \\
+\textbf{Foreign Languages:} English, Japanese (Fundamental) \\
+\textbf{Interests:} Software Development, AI Integration, High-Performance Systems, Competitive Programming
 
 % ========== AWARDS ==========
 \section{Awards \& Achievements}
 
-\resumeitem{ICPC National Contest}{2025}
-\resumebullet{Participated as a contestant in the ICPC National 2025, competing with top university programming teams in the region.}
+\entry{ICPC National Contest}{2025}
+      {Contestant --- competed with top university programming teams in the region}{}
 
 \end{document}
