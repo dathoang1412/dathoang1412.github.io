@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Projects — Hoàng Tấn Đạt</title>
-<meta name="description" content="A catalogue of projects by Hoàng Tấn Đạt: BookHub, a book-lending community platform, and GU.AI, an AI fashion photography SaaS.">
+<meta name="description" content="Projects by Hoàng Tấn Đạt: GU.AI, a production AI fashion photography SaaS (Next.js, Node.js), and HistoryTalk, an AI-powered Vietnamese history learning platform.">
 <meta name="author" content="Hoàng Tấn Đạt">
 <link rel="canonical" href="https://dathoang1412.github.io/projects.html">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Projects — Hoàng Tấn Đạt">
-<meta property="og:description" content="A catalogue of projects: BookHub and GU.AI.">
+<meta property="og:description" content="GU.AI — an AI fashion photography SaaS — and HistoryTalk, built on Next.js and Node.js.">
 <meta property="og:url" content="https://dathoang1412.github.io/projects.html">
 <meta property="og:image" content="https://dathoang1412.github.io/assets/images/avatar.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -57,21 +57,30 @@
 
     <article class="entry reveal">
       <span class="numeral" aria-hidden="true">i.</span>
-      <h2>BookHub</h2>
-      <p class="when">personal project · 2025</p>
+      <h2><a class="title-link" href="https://guai.com.vn" target="_blank" rel="noopener">GU.AI — AI Fashion Photography Platform</a></h2>
+      <p class="when">full-stack saas · team of 3 · 2026</p>
       <p>
-        A full-stack platform for book lending and a community for book lovers —
-        borrow, lend, and argue about endings. The front end
-        (<span class="mono">React</span> + <span class="mono">TailwindCSS</span>)
-        lets readers search books, manage personal libraries and write reviews;
-        the backend (<span class="mono">Node.js</span> / <span class="mono">Express</span>,
-        <span class="mono">MongoDB</span>) keeps the ledger — availability,
-        borrowing history, and every conversation in between.
+        A production platform of three apps — a <span class="mono">Next.js</span>
+        customer web, a <span class="mono">Node.js</span> / <span class="mono">Express</span>
+        API of ~98 endpoints, and an admin panel — letting fashion sellers make
+        product photos and videos through nine AI tools (virtual try-on, model
+        generation, editing) powered by <span class="mono">Fashn.ai</span>.
+      </p>
+      <p>
+        Credit-based billing runs on <span class="mono">PayOS</span> with
+        HMAC-verified webhooks; <span class="mono">Google Gemini</span> drives an
+        in-studio assistant with RAG semantic search — 768-dim embeddings indexed
+        in <span class="mono">pgvector</span> / HNSW on
+        <span class="mono">PostgreSQL</span>. Real-time notifications and support
+        chat run on <span class="mono">Socket.IO</span>, behind a five-tier
+        rate-limiter guarding the paid AI quota, with an RBAC admin for live
+        monitoring and revenue analytics.
       </p>
       <p class="refs">
-        <a href="https://github.com/Bookhub-SWD/Frontend" target="_blank" rel="noopener">frontend</a>
-        <a href="https://github.com/Bookhub-SWD/Backend" target="_blank" rel="noopener">backend</a>
-        <a href="https://github.com/Bookhub-SWD/admin-frontend" target="_blank" rel="noopener">admin</a>
+        <a href="https://guai.com.vn" target="_blank" rel="noopener">live</a>
+        <a href="https://github.com/GU-AI-enterprise/GU.AI-Frontend" target="_blank" rel="noopener">frontend</a>
+        <a href="https://github.com/GU-AI-enterprise/GU.AI-Backend" target="_blank" rel="noopener">backend</a>
+        <a href="https://github.com/GU-AI-enterprise/GU.AI-admin-panel" target="_blank" rel="noopener">admin</a>
       </p>
     </article>
 
@@ -79,26 +88,30 @@
 
     <article class="entry reveal">
       <span class="numeral" aria-hidden="true">ii.</span>
-      <h2><a class="title-link" href="https://guai.com.vn" target="_blank" rel="noopener">GU.AI — AI Fashion Photography Platform</a></h2>
-      <p class="when">full-stack saas · 2025</p>
+      <h2>HistoryTalk — Interactive Vietnamese History</h2>
+      <p class="when">full-stack · team of 4 · 2026</p>
       <p>
-        Three applications — customer web, a REST API of ~85 endpoints, and an
-        admin panel — letting fashion sellers create product photos and videos
-        through nine AI tools (virtual try-on, model generation, editing)
-        powered by <span class="mono">Fashn.ai</span>.
+        A platform for learning Vietnamese history by talking to it: users
+        voice-chat with RAG-powered historical characters (<span class="mono">Azure Speech</span>),
+        take quizzes, and keep streaks through gamification — daily quests and an
+        Android home-screen widget. I bootstrapped the
+        <span class="mono">Node.js</span> / <span class="mono">Express</span> /
+        <span class="mono">MongoDB</span> backend and the
+        <span class="mono">React Native</span> (Expo) app from scratch, alongside
+        a <span class="mono">Next.js</span> web client.
       </p>
       <p>
-        Credit-based billing with <span class="mono">PayOS</span> payments,
-        dynamic per-tool pricing and subscription plans;
-        <span class="mono">Google Gemini</span> drives an in-studio assistant
-        with RAG-based template search. Real-time notifications and support
-        chat run on <span class="mono">Socket.IO</span>, and the admin panel
-        ships live monitoring, RBAC user management and revenue analytics.
+        Under the hood: an OCR PDF-ingestion pipeline
+        (<span class="mono">Tesseract.js</span>, 150-page documents with
+        print-artifact filtering) feeding the RAG store, <span class="mono">PayOS</span>
+        payments over a custom HMAC-SHA256 REST client,
+        <span class="mono">Firebase</span> Cloud Messaging push, and Google OAuth —
+        across a 154-endpoint, 19-model REST API.
       </p>
       <p class="refs">
-        <a href="https://github.com/GU-AI-enterprise/GU.AI-Frontend" target="_blank" rel="noopener">frontend</a>
-        <a href="https://github.com/GU-AI-enterprise/GU.AI-Backend" target="_blank" rel="noopener">backend</a>
-        <a href="https://github.com/GU-AI-enterprise/GU.AI-admin-panel" target="_blank" rel="noopener">admin</a>
+        <a href="https://github.com/CongThanh245/HistoryTalk-FE" target="_blank" rel="noopener">frontend</a>
+        <a href="https://github.com/WDP301-HistoryTalk/wdp301-backend" target="_blank" rel="noopener">backend</a>
+        <a href="https://github.com/WDP301-HistoryTalk/wdp301-mobile" target="_blank" rel="noopener">mobile</a>
       </p>
     </article>
 
