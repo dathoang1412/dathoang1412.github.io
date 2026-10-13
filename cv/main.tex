@@ -1,7 +1,8 @@
 %-------------------------
 % CV - Hoàng Tấn Đạt
+% Lines starting with "% >>" are notes for you: fill in or delete before sending.
 %-------------------------
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,10pt]{article}
 
 % Font & encoding
 \usepackage[utf8]{vietnam}
@@ -10,23 +11,21 @@
 \usepackage[hidelinks]{hyperref}
 
 % Margins
-\usepackage[top=1.1cm, bottom=1.1cm, left=1.5cm, right=1.5cm]{geometry}
+\usepackage[top=1.0cm, bottom=1.0cm, left=1.6cm, right=1.6cm]{geometry}
 
 % Sections
 \usepackage{titlesec}
 \titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{12pt}{5pt}
+\titlespacing{\section}{0pt}{8pt}{4pt}
 
 % Lists
 \usepackage{enumitem}
-\setlist[itemize]{leftmargin=1.4em, itemsep=3pt, topsep=4pt, parsep=0pt}
+\setlist[itemize]{leftmargin=1.3em, itemsep=2pt, topsep=3pt, parsep=0pt}
 
-% Remove paragraph indent
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.55em}
-
-% A little breathing room between lines for readability
-\linespread{1.06}
+\setlength{\parskip}{0.3em}
+\linespread{1.05}
+\pagestyle{empty}
 
 % Two-line entry: {bold left}{right} / {italic left}{italic right}
 \newcommand{\entry}[4]{%
@@ -38,8 +37,9 @@
 
 % ========== HEADER ==========
 \begin{center}
-    {\Huge \textbf{Hoàng Tấn Đạt}} \\[6pt]
-    Ho Chi Minh City, Viet Nam \ | \
+    {\Huge \textbf{Hoàng Tấn Đạt}} \\[4pt]
+    {\large Frontend / Full-stack Developer} \\[4pt]
+    Ho Chi Minh City, Vietnam \ | \
     \href{mailto:datdat2kk5@gmail.com}{datdat2kk5@gmail.com} \ | \
     (+84) 799 165 330 \\[2pt]
     \href{https://linkedin.com/in/dathoang1412}{linkedin.com/in/dathoang1412} \ | \
@@ -48,63 +48,65 @@
 
 % ========== SUMMARY ==========
 \section{Summary}
-Information Technology student targeting a \textbf{Frontend / Full-stack Developer} role, specializing in \textbf{Next.js} and \textbf{Node.js}. Delivered enterprise Next.js frontend for a Japanese client at FPT Software and built full-stack products on a Next.js + Node.js/Express stack, including a production AI SaaS at guai.com.vn. Strong in TypeScript and REST API design; also ships mobile with React Native. English (working), Japanese (basic).
+Final-year Information Technology student looking for a Frontend or Full-stack Developer position, working with Next.js, Node.js and TypeScript.
+I want to join a product team where I can ship features to real users, learn from code review, and grow into a solid full-stack engineer.
+% >> If you can start full-time before graduating, add: "Available for full-time work from <month>."
 
 % ========== EXPERIENCE ==========
 \section{Experience}
 
-\entry{FPT Software (FSoft)}{Jul 2025 -- Oct 2025}
-      {Frontend Developer Intern --- \textbf{Next.js}}{Ho Chi Minh City, Viet Nam}
+\entry{FPT Software}{Jul 2025 -- Oct 2025}
+      {Frontend Developer Intern}{Ho Chi Minh City, Vietnam}
 \begin{itemize}
-    \item Developed frontend features with \textbf{Next.js} and \textbf{TypeScript} for an enterprise web application delivered to a \textbf{Japanese client}.
-    \item Built responsive, spec-compliant UI components and integrated REST APIs with backend and QA teams.
-    \item Worked in an agile process with code reviews and Japanese-standard documentation and quality requirements.
+    \item Implemented screens and features in Next.js and TypeScript for an enterprise web application built for a Japanese client, following detailed screen specifications.
+    \item Integrated REST APIs and fixed defects reported by QA, working with backend developers to resolve mismatches between UI and API contracts.
+    \item Worked in a Scrum team with mandatory code review and the client's documentation and quality standards.
 \end{itemize}
+% >> Make these bullets concrete with things you actually did, e.g. "Built 8 screens of the
+% >> order-management module", "Built a reusable data-table component used across N screens",
+% >> "Closed N QA defects in sprint X". One real detail beats three generic sentences.
 
 % ========== PROJECTS ==========
 \section{Projects}
 
-\entry{GU.AI --- AI Fashion Photography Platform}{2026 | Team of 3}
-      {Full-stack --- \textbf{Next.js}, \textbf{Node.js/Express}, TypeScript, PostgreSQL/Supabase, Socket.IO}
-      {\href{https://guai.com.vn}{guai.com.vn} $\cdot$ \href{https://github.com/GU-AI-enterprise}{github}}
+\entry{GU.AI --- AI Product Photography Platform for Fashion Sellers}{2026}
+      {Full-stack Developer, team of 3 --- Next.js, Express, TypeScript, PostgreSQL, Socket.IO}
+      {\href{https://guai.com.vn}{guai.com.vn} $\cdot$ \href{https://github.com/GU-AI-enterprise}{GitHub}}
 \begin{itemize}
-    \item Built a 3-app SaaS platform (\textbf{Next.js} customer web + admin panel, Express/TypeScript API) with a \textbf{98-endpoint REST API} and \textbf{9 AI tools} for fashion sellers --- virtual try-on, model generation, image/video editing --- powered by Fashn.ai.
-    \item Implemented \textbf{RAG-based} semantic search using Google Gemini embeddings (768-dim) with \textbf{pgvector}/HNSW indexing on PostgreSQL.
-    \item Integrated \textbf{PayOS} payments with \textbf{HMAC webhook signature verification} for secure credit-based billing, subscription plans, and dynamic per-tool pricing.
-    \item Built real-time notifications and support chat with \textbf{Socket.IO} (replacing 5s polling), a \textbf{5-tier rate-limiting} layer protecting paid AI-API quota, plus an admin panel with \textbf{RBAC}, live monitoring, and revenue analytics.
+    \item Co-built a live SaaS product that lets fashion sellers create product photos with AI (virtual try-on, model generation, image and video editing via Fashn.ai), made up of a customer web app, an admin panel and an Express REST API.
+    \item Built credit-based billing on PayOS: subscription plans, per-tool pricing, and webhook signature verification so payment confirmations cannot be forged.
+    \item Replaced 5-second polling with Socket.IO for real-time notifications and support chat, and added rate limiting to protect the paid AI API quota from abuse.
+    \item Implemented semantic search with Gemini embeddings stored in PostgreSQL using pgvector (HNSW index).
 \end{itemize}
+% >> Keep only bullets for parts YOU built. If the product has real users/paying customers,
+% >> add one line like "Serving ~N registered sellers since <month>" - that is the strongest line on this CV.
 
-\entry{HistoryTalk --- Interactive Vietnamese History Learning Platform}{2026 | Team of 4}
-      {Full-stack --- \textbf{Next.js}, \textbf{Node.js/Express}, TypeScript, MongoDB, React Native (Expo), Firebase}
-      {\href{https://github.com/WDP301-HistoryTalk}{github}}
+\entry{HistoryTalk --- Vietnamese History Learning App}{2026}
+      {Backend \& Mobile Developer, team of 4 --- Express, TypeScript, MongoDB, React Native (Expo), Next.js}
+      {\href{https://github.com/WDP301-HistoryTalk}{GitHub}}
 \begin{itemize}
-    \item Bootstrapped the Express/TypeScript/MongoDB backend and the Expo/React Native mobile app from scratch, authoring both repositories' initial architecture.
-    \item Built an AI platform where users voice-chat with \textbf{RAG-powered} historical characters (Azure Speech), with quizzes and gamification --- daily quests, streaks, and an Android home-screen widget.
-    \item Implemented an \textbf{OCR-based PDF ingestion pipeline} (Tesseract.js) for the RAG document feature, handling 150-page documents with print-artifact filtering.
-    \item Integrated \textbf{PayOS} payments (custom HMAC-SHA256-signed REST client), \textbf{Firebase Cloud Messaging} push, and Google OAuth across a \textbf{154-endpoint, 19-model} REST API.
+    \item Set up the initial architecture of the Express/TypeScript/MongoDB backend and the React Native (Expo) mobile app, which the rest of the team built on.
+    \item Built voice conversations with AI historical characters whose answers are grounded in uploaded documents (RAG), using Azure Speech for speech-to-text and text-to-speech.
+    \item Built a PDF ingestion pipeline using Tesseract.js OCR that handles scanned documents of up to 150 pages and removes print artifacts before indexing.
+    \item Integrated PayOS payments, Firebase Cloud Messaging push notifications and Google sign-in; added quizzes, daily quests, streaks and an Android home-screen widget.
 \end{itemize}
-
-% ========== EDUCATION ==========
-\section{Education}
-
-\entry{FPT University}{Oct 2023 -- Feb 2027 (Expected)}
-      {Bachelor's Degree in Information Technology --- GPA: 3.52/4.0}{Ho Chi Minh City, Viet Nam}
 
 % ========== SKILLS ==========
 \section{Skills}
-\noindent
-\textbf{Core Stack:} \textbf{Next.js} $\cdot$ \textbf{Node.js/Express} $\cdot$ TypeScript $\cdot$ REST API \\
-\textbf{Programming Languages:} JavaScript, TypeScript, C/C++, Java \\
-\textbf{Frontend:} \textbf{Next.js}, React.js, TailwindCSS, Responsive Design, React Native (Expo) \\
-\textbf{Backend:} \textbf{Node.js}, Express, REST API, Socket.IO \\
-\textbf{Database:} PostgreSQL, Supabase, MongoDB \\
-\textbf{Practices \& Tools:} Git, GitHub, Docker, CI/CD, Agile/Scrum, Code Review \\
-\textbf{Foreign Languages:} English, Japanese (Fundamental)
+\textbf{Languages:} TypeScript, JavaScript, Java, C/C++ \\
+\textbf{Frontend:} Next.js, React, Tailwind CSS, React Native (Expo) \\
+\textbf{Backend:} Node.js, Express, REST APIs, Socket.IO \\
+\textbf{Databases:} PostgreSQL (Supabase, pgvector), MongoDB \\
+\textbf{Tools:} Git, GitHub, Docker, Agile/Scrum \\
+\textbf{Foreign languages:} English (working proficiency), Japanese (basic)
+% >> Add certificate scores if you have them: IELTS/TOEIC, JLPT N5/N4.
+% >> Only list Docker / CI/CD if you can explain in an interview what you set up with them.
 
-% ========== AWARDS ==========
-\section{Awards \& Achievements}
-
-\entry{ICPC National Contest}{2025}
-      {Contestant --- competed with top university programming teams in the region}{}
+% ========== EDUCATION ==========
+\section{Education \& Achievements}
+\entry{FPT University}{Oct 2023 -- Feb 2027 (expected)}
+      {B.Sc. in Information Technology --- GPA 3.52/4.0}{Ho Chi Minh City, Vietnam}
+\textbf{ICPC Vietnam National Programming Contest} --- Contestant \hfill 2025
+% >> Add your team's rank if it helps, e.g. "ranked 45/120 teams".
 
 \end{document}
